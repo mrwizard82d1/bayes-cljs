@@ -10,10 +10,13 @@
 (defn likelihoods [data models]
  (map #(data %) models))
 
-(defn posteriors [data models priors]
-  (let [products (map #(* %1 %2) (likelihoods data models) priors)
-        total-probability (reduce + products)]
-    (map #(/ % total-probability) products))) 
+(defn posteriors 
+  ([data models priors]
+   (posteriors data models priors likelihoods))
+  ([data models priors likelihood-fn]
+   (let [products (map #(* %1 %2) (likelihood-fn data models) priors)
+         total-probability (reduce + products)]
+     (map #(/ % total-probability) products)))) 
 
 (enable-console-print!)
 

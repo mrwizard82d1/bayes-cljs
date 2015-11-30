@@ -1,4 +1,4 @@
-# bayes-table-cljs
+# bayes-cljs
 
 A set of ClojureScript functions to calculate the Bayesian posterior
 probabilities based on observed data, the model probabilities and the
@@ -30,7 +30,7 @@ To get source map support in the Node REPL:
     
 To start a browser REPL:
     
-1. Uncomment the following lines in src/bayes_table/core.cljs:
+1. Uncomment the following lines in src/bayes/core.cljs:
 ```clojure
 ;; (defonce conn
 ;;   (repl/connect "http://localhost:9000/repl"))

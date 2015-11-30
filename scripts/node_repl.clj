@@ -2,10 +2,10 @@
 (require 'cljs.build.api)
 (require 'cljs.repl.node)
 
-;; Compile all scripts in the "src" directory and write the result to "out/bayes_table.js."
+;; Compile all scripts in the "src" directory and write the result to "out/bayes.js."
 (cljs.build.api/build "src"
-                      {:main 'bayes-table.core
-                       :output-to "out/bayes_table.js"
+                      {:main 'bayes.core
+                       :output-to "out/bayes.js"
                        :output-dir "out"
                        :verbose true})
 

@@ -4,7 +4,7 @@
 
 (let [start (System/nanoTime)]
   (b/build "src"
-    {:output-to "release/bayes_table.js"
+    {:output-to "release/bayes.js"
      :output-dir "release"
      :optimizations :advanced
      :verbose true})

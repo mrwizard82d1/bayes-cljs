@@ -1,14 +1,15 @@
 (ns bayes.table)
 
-(def model-ids [0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0])
+(def models {:a-wins [0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0]})
 
-(def models
-  (map #(hash-map :b-wins (- 1 %) :a-wins %) model-ids))
+(def likelihood-a-wins (reduce #(assoc %1 %2 %2) {} (:a-wins models)))
 
-(def priors [0.0, 0.02, 0.03, 0.05, 0.10, 0.15, 0.20, 0.25, 0.15, 0.05, 0.0])
+(def priors {:a-wins [0.0, 0.02, 0.03, 0.05, 0.10, 0.15, 0.20, 0.25, 0.15, 0.05, 0.0]})
 
-(defn likelihoods [data models]
- (map #(data %) models))
+(defn likelihood [data model]
+  (if (= data :a-wins)
+    (likelihood-a-wins model)
+    (- 1 (likelihood-a-wins model))))
 
 (defn posteriors 
   ([data models priors]

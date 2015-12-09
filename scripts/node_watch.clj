@@ -1,7 +1,7 @@
 (require '[cljs.build.api :as b])
 
-(b/watch (b/inputs "src" "test")
-  {:main 'bayes.table-tests
+(b/watch (b/inputs "src")
+  {:main 'bayes.core
    :output-to "out/bayes.js"
    :output-dir "out"
    :target :nodejs})

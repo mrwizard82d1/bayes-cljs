@@ -16,7 +16,7 @@
     ((bp/proportions models identity) model)
     ((bp/proportions models #(- 1 %)) model)))
 
-(defn update [data models priors-f likelihood]
+(defn infer [data models priors-f likelihood]
   (let [data :a-wins
         likelihoods (bp/likelihoods data models likelihood)
         priors (bp/priors models prior-f)
@@ -31,6 +31,6 @@
 
 (defn -main [& args]
   (let [a-result (update :a-wins models prior-f likelihood)]
-    (pprint a-result)))
+    (println a-result)))
 
 (set! *main-cli-fn* -main)

@@ -13,7 +13,7 @@
 
 (defn posteriors 
   ([data models priors]
-   (posteriors data models priors likelihoods))
+   (posteriors data models priors likelihood))
   ([data models priors likelihood-fn]
    (let [products (map #(* %1 %2) (likelihood-fn data models) priors)
          total-probability (reduce + products)]
